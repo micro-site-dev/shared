@@ -25,6 +25,7 @@ export interface Options {
 
 export interface Action {
   type: symbol | string
+  /*eslint-disable */
   payload?: any
 }
 
