@@ -7,19 +7,25 @@ export function defineComponent(options: Options) {
   return options
 }
 
-export interface CreateVueOptions {
-  plugins?: Plugin[]
-}
-
 export interface RenderOptions {
   attrs?: Data
   route?: Route
+  plugins?: Plugin[]
+}
+
+export interface AppConfig  {
+  routes?: Route[]
+  stores?: { 
+    key: string
+    module: string 
+    global?: string
+  }[]
 }
 
 export interface Options {
   name?: string
-  route?: Route
-  render(element: Element, options?: RenderOptions): void
+  options?: Omit<RenderOptions, 'attrs'>
+  render(element: Element, options?: RenderOptions): void | Promise<void>
   onUnmount?(element: Element): void | boolean
 }
 
@@ -53,6 +59,8 @@ export interface KoalaStore<S> {
 
 export interface Route {
   path?: string
+  global?: string
   component?: string
+  plugins?: string[]
   children?: Route[]
 }

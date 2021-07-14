@@ -8,9 +8,6 @@
     "moduleResolution": "node",
     "jsx": "preserve",
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "paths": {
-      "core": [ "./packages/core/src/index.ts" ]
-    }
+    "resolveJsonModule": true
   }
 }
